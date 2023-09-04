@@ -448,6 +448,52 @@
 
 </footer>
 
+<section id="cookies">
+    <div class="cookie-container">
+        <div class="cookie-subcontainer">
+            <div class="cookies">
+                <p>This website use cookies to ensure you get the best experience on our website.
+                    <a href="">More Info.</a>
+                </p>
+                <button id="cookies-btn" class="normal">Accepted</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    setCookie = (cName, cValue, expDays) => {
+        let date = new Date();
+        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = cName + "=" +cValue + ";" + expires + "; path=/";
+    }
+
+    getCookie = (cName) => {
+        const name = cName + "=";
+        const cDecoded = decodeURIComponent(document.cookie);
+        const cArr = cDecoded.split("; ");
+        let value;
+        cArr.forEach(val => {
+            if(val.indexOf(name) === 0) value = val.substring(name.length);
+        })
+
+        return value;
+    }
+
+    document.querySelector("#cookies-btn").addEventListener("click", () => {
+        document.querySelector("#cookies").style.display = "none";
+        setCookie("cookie", true, 30);
+    })
+
+    cookieMessage = () => {
+        if(!getCookie("cookie"))
+        document.querySelector("#cookies").style.display = "block;"
+    }
+
+    window.addEventListener("load", cookieMessage);
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5866189238364925"
      crossorigin="anonymous"></script>
 
