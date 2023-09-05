@@ -164,6 +164,10 @@ body{
     font-weight: 700;
     font-size: 15px;
 }
+#hero button a{
+    outline: none;
+    text-decoration: none;
+}
 #feature{
     display: flex;
     align-items: center;
@@ -967,13 +971,17 @@ footer .copyright span{
     padding: 10px;
     font-size: 13px;
 }
-#subtotal .button{
+#subtotal button{
     background-color: #088178;
-    color: #fff;
+    color: white;
     padding: 12px 20px;
     border: none;
-    outline: none;
     cursor: pointer;
+}
+#subtotal button a{
+    color: white;
+    outline: none;
+    text-decoration: none;
 }
 
 
